@@ -857,7 +857,6 @@ setlocal enableDelayedExpansion
 		set myIcon=%SystemRoot%\System32\SHELL32.dll,130
 		set myIconN=126
 	)
-	
 (
 	exit /b
 )
