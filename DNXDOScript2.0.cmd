@@ -935,6 +935,7 @@ setlocal enableDelayedExpansion
 	cls
 	rem goto :ToStartScript2
 	call :ctext "Deen0X Debloat and Optimization Script for Windows 10 v2.0: DNXDOScript" sTXT white strong cyan normal
+	title Deen0X Debloat and Optimization Script [DNXDOScript]
 	echo %sTXT%
 	echo -----------------------------------------------------------------------
 	echo.
