@@ -100,4 +100,4 @@ The script adds a new Windows Start Menu entry, for launch again the script when
 
 Hope you found useful this script.
 
-DNX
+Deen0X
