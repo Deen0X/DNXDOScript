@@ -822,6 +822,8 @@ setlocal enableDelayedExpansion
 	copy "%myWP%" "C:\Windows\DNXWallPaper.jpg" >nul
 	reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d "C:\Windows\DNXWallPaper.jpg" /f  >nul
 	RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+	powershell sleep 5
+	RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
 (
 	exit /b
 )
@@ -1005,6 +1007,13 @@ setlocal enableDelayedExpansion
 		set "rSUBPROC=NORMAL"
 	)
 	echo selected %rSUBPROC% mode
+	echo (10 seconds timer. default is Yes)
+	choice /c YN /D Y /T 10 /M "Create restore point?"
+	if errorlevel 1 (
+		powershell Enable-ComputerRestore -Drive 'C:\'
+		powershell.exe -ExecutionPolicy Bypass -Command "Checkpoint-Computer -Description "MyRestorePoint" -RestorePointType "MODIFY_SETTINGS""
+	)
+	
 	cls
 :ToStartScript2
 	call :ctext "%RunMode%" sTXT black normal yellow normal
@@ -1043,6 +1052,7 @@ rem	echo RMFilter=%RMFilter%
 
 	call :writeL "- Set Custom Wallpaper" 76 "["
 	call :SetWallpaper "%BaseDirProc%Extras\Wallpaper.jpg"
+	call :write "."
 	%sELOK%
 	
 :: __________________________________________________________________ WUtils	
@@ -1052,9 +1062,9 @@ rem	echo RMFilter=%RMFilter%
 	set sDESTShortCut=%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\DNXScript
 	if not exist "%sDESTShortCut%" mkdir "%sDESTShortCut%"
 	call :CreateShortCut "%~dpnx1" "%sDESTShortCut%" "DNXDOScript - Debloat and Optimiaztion Script by Deen0X" "" "%myIcon%" ""
+	call :writeL "."
 	%sELOK%
-
-call :SetWallpaper "%BaseDirProc%Extras\Wallpaper.jpg"
+	echo.
 
 :}
 
