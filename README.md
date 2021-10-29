@@ -97,6 +97,13 @@ The script adds a new Windows Start Menu entry, for launch again the script when
 
 ![image](https://user-images.githubusercontent.com/3720302/138959091-751cf1b2-fa9d-4dba-b6b9-1681313820f4.png)
 
+# New feature: create restore point
+
+Now, before running all the scripts, there is an option to create a restore point of the system
+The script will enable the service for creating and managing restore points, and then will create a restorepoint with the default settings.
+
+Thanks to TuberViejuner for this suggestion.
+
 
 Hope you found useful this script.
 
