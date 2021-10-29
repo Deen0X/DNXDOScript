@@ -917,20 +917,6 @@ setlocal enableDelayedExpansion
 		set "RunMode=NORMAL"
 	)
 :: ___________________
-	set bNoRun=0
-	if "%COMPUTERNAME%"=="WS-KWISATZ" SET /a bNoRun+=1
-	if "%COMPUTERNAME%"=="G97D01740814172" SET /a bNoRun+=1
-	call :ctext "Deen0X quita esta seccion..." sTXT black normal red strong
-	if %bNoRun% NEQ 0 (
-		echo this script must run on sandbox...
-		echo %sTXT%
-		choice /c YN /M "Do you want to continue?"
-		if errorlevel 2 (
-			echo have a nice day
-			goto :eof
-		)
-	)
-:: ___________________
 
 
 :: goto :ToStartScript2
