@@ -20,11 +20,8 @@ echo Less or Equal to 4GB, set default value for this parameter.
 	set /a xmyVM=%xRAM%/ 2
 	set /a xmyVM=!xmyVM! * 1024
 )
-pause
-
 
 if %UserDefinedVM% GTR 0 set xmyVM=%UserDefinedVM%
-
 
 echo Current RAM installed: %xRAM%GB
 echo calculated Value     : %xmyVM%KB
