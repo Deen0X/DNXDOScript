@@ -28,7 +28,7 @@ These files can be .cmd, .bat, .reg, .ps1, etc, anything that can be launched fr
 
 There are two main folders:
 - Scripts: This contain all scripts that will be launched by the main script
-- Utils: This contain extra scripts considered as Util/Tool, because will not impact directly on the performance and most of them are accessory to the installation.
+- Utils: This contain extra scripts considered as Util/Tool, because will not impact directly on the performance and most of them are accessory to the installation. You can install your own extra software using some cmd/ps1 script.
 
 Inside each main folder, there are two subfolders
 - Enabled: Scripts that will be executed are included on this folder
