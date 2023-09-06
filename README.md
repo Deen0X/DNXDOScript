@@ -3,7 +3,11 @@
 Debloat and Optimization Script for machines running Windows 10
 
 Download package
-[DNXDOScript.zip](https://github.com/Deen0X/DNXDOScript/releases/download/v1.2/DNXDOScript.7z)
+[DNXDOScript.zip](https://github.com/Deen0X/DNXDOScript/releases
+
+you can check for updates here:
+https://github.com/Deen0X/DNXDOScript
+https://t.me/PCMasterRacePortable/673587    (Spanish spoken Group)
 
 This Script help to gain performance on your system, in two main ways:
 - Original project was based on W4RH4WK work, but starting with 2.1.8 , i write my own code to implement optimizations on the code, improving performance to run the main script.
