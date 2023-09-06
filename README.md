@@ -6,9 +6,10 @@ Download package
 [DNXDOScript.zip](https://github.com/Deen0X/DNXDOScript/releases/download/v1.2/DNXDOScript.7z)
 
 This Script help to gain performance on your system, in two main ways:
-- First one, debloat windows. For this, i based on the W4RH4WK work on their project
-https://github.com/W4RH4WK/Debloat-Windows-10
-- Second, i included many tweaks for improve performance on windows, focused on setup a gaming pc, or trying to get usable old machines such tablets, netbooks, old pcs, etc, that don´t have so much resources but can install windows 10.
+- Original project was based on W4RH4WK work, but starting with 2.1.8 , i write my own code to implement optimizations on the code, improving performance to run the main script.
+- The main goal of this script is to create a way to allow users to include their own subscripts, without need to modifying the original script. Simply add your Powersheel Script (ps1), Command Batch file (cmd, bat) or reg files on Scripts\Enabled or Utils\Enabled folders
+- This script include many tweaks for improve performance on windows, focused on setup a gaming pc, or trying to get usable old machines such tablets, netbooks, old pcs, etc, that don´t have so much resources but can install windows 10.
+- Many scripts from previous versions was merged in a main script (cmd, bat, reg, ps1) for improve performance when running from main script. You can check them and modify if you need. I added comments to each section for allow to easy understand what is doing these files.
 
 As extra, there are some Utils included with the package that may be interesting for users to run on their system
 
@@ -19,9 +20,11 @@ As extra, there are some Utils included with the package that may be interesting
 
 # How it works?
 
+You must run as administrator (right click on DNSDOScript.cmd file, run as administrator)
+
 The main script will scan two main folders,  looking for files (subscripts) that will execute.
 
-These files can be .cmd, .bat, .reg, .ps1, etc, anything that can be launched from the main script (cmd)
+These files can be .cmd, .bat, .reg, .ps1, etc, anything that can be launched from the main script (cmd). Take note that these scripts will be executed in alphabetical order, so if you want to specific order on script execution, you must rename scripts in the proper way to ensure their execution. I suggest to add some number before the name, such "000_name of script.cmd" , "001_name of powershell script.ps1", etc.
 
 There are two main folders:
 - Scripts: This contain all scripts that will be launched by the main script
@@ -30,22 +33,6 @@ There are two main folders:
 Inside each main folder, there are two subfolders
 - Enabled: Scripts that will be executed are included on this folder
 - Disabled: If you don´t want to run some script, instead of editing or deleting, move it from Enabled folder to this one. The main script will not execute any of the scripts on this folder.
-
-# Run modes
-
-The script can be executed in two modes:
-
-![image](https://user-images.githubusercontent.com/3720302/138956430-5aba8351-254b-40a2-b8c7-5509316d1fd0.png)
-
-- Safe: This mode is less invasive, because will not in-deep modify the system. This will not gain the same level of performance than Normal mode.
-- Normal: This will run all enabled scripts and utils. This will in-deep modify the system and cannot be undone.
-
-The main script determine if a script is safe or not, simply checking if the file is named "*.safe.*"
-example:
-Set SystemResponsiveness for Gaming.Safe.cmd
-This script will be considered safe, because their filename ends in "*.Safe.*", this case, ".Safe.cmd"
-
-If you consider some script is safe to run on your system, simply add ".Safe" before the extension.
 
 # Main Screen Execution
 
@@ -56,21 +43,9 @@ The main screen of the Script will show the subscripts launched, and a little in
 The "OK" text simply indicate that the script finalized. This will not be consider info about the result of the SubScript itself.
 The "." indicate that the subscript is not a file. Is part of the main script.
 
-# Window mode for SubScripts
-
-The script will ask for window mode for running SubScripts.
-The modes can be:
-
-![image](https://user-images.githubusercontent.com/3720302/138958109-5521e651-1c22-4c76-908b-9a9fc74ead75.png)
-
-- Normal: Windows will open as normal, showing all the content of the SubScript excecution.
-- Min: Windows will open minimized, and you only will see the general script page.
-
-![image](https://user-images.githubusercontent.com/3720302/138957577-af8dfe5c-4b87-4851-9756-24a83d0997d1.png)
-This case the subscripts are running in minimized mode.
+# Window for SubScripts
 
 ![image](https://user-images.githubusercontent.com/3720302/138958783-18310202-6516-4f98-9f8d-04f97e2942de.png)
-This case the subscripts are running in normal mode.
 
 Note: On some windows subscripts may appear some errors/red text/etc. Don't worry, this is normal.
 
@@ -97,12 +72,6 @@ The script adds a new Windows Start Menu entry, for launch again the script when
 
 ![image](https://user-images.githubusercontent.com/3720302/138959091-751cf1b2-fa9d-4dba-b6b9-1681313820f4.png)
 
-# New feature: create restore point
-
-Now, before running all the scripts, there is an option to create a restore point of the system
-The script will enable the service for creating and managing restore points, and then will create a restorepoint with the default settings.
-
-Thanks to TuberViejuner for this suggestion.
 
 # Note about virtual memory
 
@@ -111,6 +80,10 @@ Thinking on low powered devices, where usually don´t have so much RAM installed
 
 There are some software or games that can´t run with low ram resources, such Yuzu, that need near to 4 or 5GB of virtual memory to run. If the case, then set manually the virual memory on the system, to allow these programs to run.
 
+
+# Whats new (starting from 2.1.8)
+
+- I convert the option "Create restore point" as a script. Starting from 2.1.8 this script is disabled. If you want to create a restore point, you must move from "Disabled" to "Enabled" Folder, and ensure that the name of the script will be at the top of the list (alphabetic ordered). This way, the script will launch before any other in the directory.
 
 Hope you found useful this script.
 
